@@ -1,0 +1,72 @@
+{
+	"settings": {
+		"index": {
+			"number_of_shards": 1,
+			"number_of_replicas": 1
+		}
+	},
+	"mappings": {
+		"product": {
+			"properties": {
+				"id": {
+					"type": "string",
+					"index": "not_analyzed"
+				},
+				"name": {
+					"type": "string",
+					"fields": {
+						"de": {
+							"type": "string",
+							"analyzer": "german"
+						},
+						"en": {
+							"type": "string",
+							"analyzer": "english"
+						},
+						"fr": {
+							"type": "string",
+							"analyzer": "french"
+						},
+						"es": {
+							"type": "string",
+							"analyzer": "spanish"
+						}
+					}
+				},
+				"price": {
+					"type": "double",
+					"index": "not_analyzed"
+				},
+				"isAvailable": {
+					"type": "boolean",
+					"index": "not_analyzed"
+				},
+				"url": {
+					"type": "string",
+					"index": "not_analyzed"
+				},
+				"escapedText": {
+					"type": "string",
+					"fields": {
+						"de": {
+							"type": "string",
+							"analyzer": "german"
+						},
+						"en": {
+							"type": "string",
+							"analyzer": "english"
+						},
+						"fr": {
+							"type": "string",
+							"analyzer": "french"
+						},
+						"es": {
+							"type": "string",
+							"analyzer": "spanish"
+						}
+					}
+				}
+			}
+		}
+	}
+}

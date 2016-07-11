@@ -1,0 +1,32 @@
+
+	group = 'manjeer.ecomm.crawler'
+	version = '1.0'
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+	apply plugin: 'maven'
+	apply plugin: 'base'
+	apply plugin: 'application'
+	mainClassName = "manjeer.ecomm.main.Main"
+    repositories {
+       mavenCentral()
+    }
+    
+    clean.doFirst {
+    	delete "${rootDir}/crawlerData"
+    	delete "${rootDir}/build"
+	delete "${rootDir}/bin"
+	}
+
+    dependencies {
+        testCompile 'junit:junit:4.8.2'
+		compile group: 'edu.uci.ics', name: 'crawler4j', version: '4.2'
+		compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+		compile group: 'org.elasticsearch', name: 'elasticsearch', version: '2.3.3'
+		compile group: 'org.mockito', name: 'mockito-all', version: '1.9.5'
+    }
+
+
+    jar {
+        manifest.attributes provider: 'manjeer.ecomm.crawler'
+    }
+
